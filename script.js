@@ -21,3 +21,24 @@ class Clientes{
 	}
 }
 
+class Dados{
+	constructor(){
+		let codigo = localStorage.getItem('codigo')
+		if(codigo === null){
+			localStorage.setItem('codigo', 0)
+		}
+	}
+
+	adicionaCodigo(){
+		let codigoAdd = localStorage.getItem('codigo')
+		return parseInt(codigoAdd) + 1
+	}
+
+	gravar(d){
+		let codigo = this.adicionaCodigo()
+
+		localStorage.setItem(codigo, JSON.stringify(d))
+		localStorage.setItem('codigo', codigo)
+	}
+}
+
